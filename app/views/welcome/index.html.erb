@@ -1,6 +1,12 @@
 
 <ul id="prefixes">
+  <% @prefixes.each do |prefix| %>
+    <li><%= prefix %></li>
+  <% end %>
 </ul>
 
 <ul id="suffixes">
+  <% @suffixes.each do |suffix| %>
+    <li><%= suffix %></li>
+  <% end %>
 </ul>
