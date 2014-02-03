@@ -1,12 +1,14 @@
+<div class="row">
+  <ul id="prefixes" class="col-xs-6">
+    <% @prefixes.each do |prefix| %>
+      <li><%= prefix %></li>
+    <% end %>
+  </ul>
+  <ul id="suffixes" class="col-xs-6">
+    <% @suffixes.each do |suffix| %>
+      <li><%= suffix %></li>
+    <% end %>
+  </ul>
+</div>
 
-<ul id="prefixes">
-  <% @prefixes.each do |prefix| %>
-    <li><%= prefix %></li>
-  <% end %>
-</ul>
 
-<ul id="suffixes">
-  <% @suffixes.each do |suffix| %>
-    <li><%= suffix %></li>
-  <% end %>
-</ul>
