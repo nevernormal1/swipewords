@@ -1,14 +1,23 @@
 <div class="row">
+  <div class="col-xs-4">
+  </div>
+  <div class="col-xs-4">
+    <%= image_tag 'brick.jpg' %>
+  </div>
+  <div class="col-xs-4">
+  </div>
+</div>
+
+<div class="row">
   <ul id="prefixes" class="col-xs-6">
     <% @prefixes.each do |prefix| %>
-      <li><%= prefix %></li>
+      <li><span class="prefix label label-default"><%= prefix %></span></li>
     <% end %>
   </ul>
   <ul id="suffixes" class="col-xs-6">
     <% @suffixes.each do |suffix| %>
-      <li><%= suffix %></li>
+      <li><span class="suffix label label-default"><%= suffix %></span></li>
     <% end %>
   </ul>
 </div>
-
 
