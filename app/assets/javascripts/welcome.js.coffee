@@ -5,15 +5,16 @@
 $(() ->
   activeLabel = null
   activeSuffix = null
-  correctWord = $("#word-container").data("value")
+  wordContainer = $("#word-container")
+  correctWord = wordContainer.data("value")
 
   completeWord = (prefix, suffix) ->
     word = prefix + suffix
 
     if word is correctWord
-      alert("Correct")
+      wordContainer.effect("explode")
     else
-      alert("Incorrect")
+      wordContainer.effect("shake")
 
   $("#prefixes").on("mousedown", ".prefix", () ->
     label = $(this)
