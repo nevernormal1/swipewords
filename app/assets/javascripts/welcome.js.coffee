@@ -17,20 +17,20 @@ $(() ->
 
   $("#prefixes").on("mousedown", ".prefix", () ->
     label = $(this)
-    label.removeClass("label-default").addClass("label-info")
+    label.switchClass("label-default", "label-info", 100)
     activeLabel = label
   )
 
   $("#suffixes").on("mouseenter", ".suffix", () ->
     if activeLabel
       label = $(this)
-      label.removeClass("label-default").addClass("label-info")
+      label.switchClass("label-default", "label-info", 100)
       activeSuffix = label
   )
 
   $("#suffixes").on("mouseout", ".suffix", () ->
     if activeSuffix
-      activeSuffix.removeClass("label-info").addClass("label-default")
+      activeSuffix.switchClass("label-info", "label-default", 100)
       activeSuffix = null
   )
 
@@ -39,10 +39,10 @@ $(() ->
 
       if activeSuffix
         completeWord(activeLabel.text(), activeSuffix.text())
-        activeSuffix.removeClass("label-info").addClass("label-default")
+        activeSuffix.switchClass("label-info", "label-default", 100)
         activeSuffix = null
 
-      activeLabel.removeClass("label-info").addClass("label-default")
+      activeLabel.switchClass("label-info", "label-default", 100)
 
       activeLabel = null
   )
