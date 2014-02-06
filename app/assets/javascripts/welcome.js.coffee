@@ -5,6 +5,15 @@
 $(() ->
   activeLabel = null
   activeSuffix = null
+  correctWord = $("#word-container").data("value")
+
+  completeWord = (prefix, suffix) ->
+    word = prefix + suffix
+
+    if word is correctWord
+      alert("Correct")
+    else
+      alert("Incorrect")
 
   $("#prefixes").on("mousedown", ".prefix", () ->
     label = $(this)
@@ -29,7 +38,7 @@ $(() ->
     if activeLabel
 
       if activeSuffix
-        alert("Selected word #{activeLabel.text()}#{activeSuffix.text()}")
+        completeWord(activeLabel.text(), activeSuffix.text())
         activeSuffix.removeClass("label-info").addClass("label-default")
         activeSuffix = null
 
