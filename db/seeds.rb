@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+image_path = "#{Rails.root}/spec/fixtures/"
+
+Word.create!(
+  :value => 'brick',
+  :prefix => 'br',
+  :suffix => 'ick',
+  :picture => File.new(image_path + "brick.jpg")
+)
+

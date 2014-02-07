@@ -2,7 +2,7 @@
   <div class="col-xs-4">
   </div>
   <div id="word-container" class="col-xs-4" data-value="<%= @word %>">
-    <%= image_tag 'brick.jpg' %>
+    <%= image_tag @word.picture.url(:medium) %>
   </div>
   <div class="col-xs-4">
   </div>
@@ -10,12 +10,12 @@
 
 <div class="row">
   <ul id="prefixes" class="col-xs-6">
-    <% @prefixes.each do |prefix| %>
+    <% @word.prefixes.each do |prefix| %>
       <li><span class="prefix label label-default"><%= prefix %></span></li>
     <% end %>
   </ul>
   <ul id="suffixes" class="col-xs-6">
-    <% @suffixes.each do |suffix| %>
+    <% @word.suffixes.each do |suffix| %>
       <li><span class="suffix label label-default"><%= suffix %></span></li>
     <% end %>
   </ul>
