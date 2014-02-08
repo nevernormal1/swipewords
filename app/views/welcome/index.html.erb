@@ -1,8 +1,7 @@
 <div class="row">
   <div class="col-xs-4">
   </div>
-  <div id="word-container" class="col-xs-4" data-value="<%= @word %>">
-    <%= image_tag @word.picture.url(:medium) %>
+  <div id="word-container" class="col-xs-4" data-value="">
   </div>
   <div class="col-xs-4">
   </div>
@@ -10,14 +9,16 @@
 
 <div class="row">
   <ul id="prefixes" class="col-xs-6">
-    <% @word.prefixes.each do |prefix| %>
-      <li><span class="prefix label label-default"><%= prefix %></span></li>
-    <% end %>
   </ul>
   <ul id="suffixes" class="col-xs-6">
-    <% @word.suffixes.each do |suffix| %>
-      <li><span class="suffix label label-default"><%= suffix %></span></li>
-    <% end %>
   </ul>
 </div>
 
+
+<% content_for :jquery do %>
+  <script>
+    $(function() {
+      SWPWRD.wordLoader().load();
+    });
+  </script>
+<% end %>
