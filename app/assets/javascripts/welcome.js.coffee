@@ -23,7 +23,7 @@ $(() ->
     activeLabel = label
   )
 
-  $("#suffixes").on("mouseenter", ".suffix", () ->
+  $("#suffixes").on("mousemove", ".suffix", () ->
     if activeLabel
       label = $(this)
       label.switchClass("label-default", "label-info", 100)
