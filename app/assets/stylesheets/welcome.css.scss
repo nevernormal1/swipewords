@@ -3,17 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-h1 { text-align: center; }
-
 ul { list-style-type: none; }
 li {
   text-align: center;
-  font-size: 2em;
+  font-size: 3em;
   span.label {
     font-weight: normal;
   }
 }
 
-#word-container img {
-  max-width: 100%;
+#word-container {
+  text-align: center;
+  img {
+    max-width: 100%;
+  }
 }
