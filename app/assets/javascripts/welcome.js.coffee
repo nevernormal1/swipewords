@@ -17,26 +17,26 @@ $(() ->
     else
       wordContainer.effect("shake")
 
-  $("#prefixes").on("vmousedown", ".prefix", () ->
+  $("#prefixes").on("mousedown touchstart", ".prefix", () ->
     label = $(this)
     label.switchClass("label-default", "label-info", 100)
     activeLabel = label
   )
 
-  $("#suffixes").on("vmouseover", ".suffix", () ->
+  $("#suffixes").on("mouseenter touchenter", ".suffix", () ->
     if activeLabel
       label = $(this)
       label.switchClass("label-default", "label-info", 100)
       activeSuffix = label
   )
 
-  $("#suffixes").on("vmouseout", ".suffix", () ->
+  $("#suffixes").on("mouseleave touchleave", ".suffix", () ->
     if activeSuffix
       activeSuffix.switchClass("label-info", "label-default", 100)
       activeSuffix = null
   )
 
-  $(document).on("vmouseup", () ->
+  $(document).on("mouseup touchend", () ->
     if activeLabel
       if activeSuffix
         completeWord(activeLabel.text(), activeSuffix.text())
