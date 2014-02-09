@@ -17,7 +17,7 @@ $(() ->
     else
       wordContainer.effect("shake")
 
-  $("#prefixes").on("mousedown", ".prefix", () ->
+  $("#prefixes").on("mousedown touchstart", ".prefix", () ->
     label = $(this)
     label.switchClass("label-default", "label-info", 100)
     activeLabel = label
@@ -36,9 +36,8 @@ $(() ->
       activeSuffix = null
   )
 
-  $(document).mouseup(() ->
+  $(document).on("mouseup touchend", () ->
     if activeLabel
-
       if activeSuffix
         completeWord(activeLabel.text(), activeSuffix.text())
         activeSuffix.switchClass("label-info", "label-default", 100)
