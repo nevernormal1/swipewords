@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require jquery-ui-1.10.4.custom.min
+//= require jquery.mobile.custom.min
 //= require_tree .
