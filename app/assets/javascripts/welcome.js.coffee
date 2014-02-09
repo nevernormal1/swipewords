@@ -5,14 +5,15 @@
 $(() ->
   activeLabel = null
   activeSuffix = null
-  wordContainer = $("#word-container")
-  correctWord = wordContainer.data("value")
 
   completeWord = (prefix, suffix) ->
     word = prefix + suffix
+    wordContainer = $("#word-container")
+    correctWord = wordContainer.data("value")
 
     if word is correctWord
-      wordContainer.effect("explode")
+      SWPWRD.wordLoader().load()
+      #wordContainer.effect("explode")
     else
       wordContainer.effect("shake")
 
