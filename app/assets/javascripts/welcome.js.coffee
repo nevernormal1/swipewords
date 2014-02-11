@@ -5,6 +5,7 @@
 $(() ->
   activeLabel = null
   activeSuffix = null
+  lastSuffix = null
 
   completeWord = (prefix, suffix) ->
     word = prefix + suffix
@@ -34,7 +35,24 @@ $(() ->
   deactivateSuffix = () ->
     if activeSuffix
       activeSuffix.switchClass("label-info", "label-default", 100)
+      lastSuffix = activeSuffix
       activeSuffix = null
+
+  detectHit = (clientX, clientY) ->
+    if activeLabel
+      if activeSuffix
+        completeWord(activeLabel.text(), activeSuffix.text())
+        activeSuffix.switchClass("label-info", "label-default", 100)
+        activeSuffix = null
+      else if lastSuffix
+        offset = lastSuffix.offset()
+        if clientX > (offset.left + lastSuffix.width())
+          completeWord(activeLabel.text(), lastSuffix.text())
+          lastSuffix = null
+
+      activeLabel.switchClass("label-info", "label-default", 100)
+
+      activeLabel = null
 
   $(document).on("mousemove touchmove", (e) ->
     e.preventDefault()
@@ -62,16 +80,13 @@ $(() ->
 
   $("#suffixes").on("mouseleave", ".suffix", deactivateSuffix)
 
-  $(document).on("mouseup touchend", () ->
-    if activeLabel
-      if activeSuffix
-        completeWord(activeLabel.text(), activeSuffix.text())
-        activeSuffix.switchClass("label-info", "label-default", 100)
-        activeSuffix = null
+  $(document).on("mouseup", (e) ->
+    detectHit(e.pageX, e.pageY)
+  )
 
-      activeLabel.switchClass("label-info", "label-default", 100)
-
-      activeLabel = null
+  $(document).on("touchend", (e) ->
+    touch = e.originalEvent.changedTouches[0]
+    detectHit(touch.clientX, touch.clientY)
   )
 
 )
