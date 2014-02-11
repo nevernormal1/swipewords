@@ -62,7 +62,7 @@ $(() ->
 
   $("#suffixes").on("mouseleave", ".suffix", deactivateSuffix)
 
-  $(document).on("mouseup", () ->
+  $(document).on("mouseup touchend", () ->
     if activeLabel
       if activeSuffix
         completeWord(activeLabel.text(), activeSuffix.text())
