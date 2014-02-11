@@ -29,12 +29,12 @@ $(() ->
 
   activateSuffix = (suffix) ->
     if activeLabel
-      suffix.switchClass("label-default", "label-info", 100)
+      suffix.switchClass("label-default", "label-info", 80)
       activeSuffix = suffix
 
   deactivateSuffix = () ->
     if activeSuffix
-      activeSuffix.switchClass("label-info", "label-default", 100)
+      activeSuffix.switchClass("label-info", "label-default", 330)
       lastSuffix = activeSuffix
       activeSuffix = null
 
@@ -70,7 +70,7 @@ $(() ->
 
   $("#prefixes").on("mousedown touchstart", ".prefix", () ->
     label = $(this)
-    label.switchClass("label-default", "label-info", 100)
+    label.switchClass("label-default", "label-info", 80)
     activeLabel = label
   )
 
