@@ -1,0 +1,19 @@
+Todo:
+
+- Load next word while playing current word so that animations can be run
+  smoothly
+- Make next word take current word as a parameter so it doesn't load it again
+- Make the images display at a max height appropriate for the device so that
+  they don't push the word parts off the screen
+- Make the word parts display at a size appropriate for the device so that
+  they are easy to swipe
+- Better feedback when you make a correct swipe
+- Make it so you can touch the word to hear what it is in case you can't tell
+  from the picture
+- Make it so the word part sounds optionally play when you touch them?
+- Splash screen with "sw" being swiped into "ipe" and "words" animating in
+
+Questions:
+- Should we have animated words for swiping verbs instead of just nouns?
+- How would swiping sentences work?
+
