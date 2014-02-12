@@ -17,10 +17,10 @@ class Word < ActiveRecord::Base
   end
 
   def prefixes
-    ((self.class.randomGroup.pluck(:prefix) - [prefix])[0..-1] + [prefix]).shuffle
+    ((self.class.randomGroup.pluck(:prefix) - [prefix])[0..2] + [prefix]).shuffle
   end
 
   def suffixes
-    ((self.class.randomGroup.pluck(:suffix) - [suffix])[0..-1] + [suffix]).shuffle
+    ((self.class.randomGroup.pluck(:suffix) - [suffix])[0..2] + [suffix]).shuffle
   end
 end
