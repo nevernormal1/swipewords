@@ -25,7 +25,7 @@ create_word "brick", "br", "ick", "brick.jpg"
 
 create_word "clam", "cl", "am", "clam.jpg"
 create_word "cloud", "cl", "oud", "cloud.jpg"
-create_word "cow", "c", "cow", "cow.jpg"
+create_word "cow", "c", "ow", "cow.jpg"
 
 create_word "flower", "fl", "ower", "flower.jpg"
 
