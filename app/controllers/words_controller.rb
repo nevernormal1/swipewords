@@ -1,12 +1,7 @@
 class WordsController < ApplicationController
   def index
-    @word = Word.random.first
+    words = Word.random.limit(2)
 
-    render :json => {
-      value: @word.value,
-      prefixes: @word.prefixes,
-      suffixes: @word.suffixes,
-      pictureUrl: @word.picture.url(:medium)
-    }
+    render :json => words
   end
 end

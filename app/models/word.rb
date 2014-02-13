@@ -9,7 +9,7 @@ class Word < ActiveRecord::Base
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
   def self.random
-    limit(1).order("RANDOM()")
+    order("RANDOM()")
   end
 
   def self.randomGroup
@@ -22,5 +22,14 @@ class Word < ActiveRecord::Base
 
   def suffixes
     ((self.class.randomGroup.pluck(:suffix) - [suffix])[0..2] + [suffix]).shuffle
+  end
+
+  def as_json(options=nil)
+    {
+      value: value,
+      prefixes: prefixes,
+      suffixes: suffixes,
+      pictureUrl: picture.url(:medium)
+    }
   end
 end
