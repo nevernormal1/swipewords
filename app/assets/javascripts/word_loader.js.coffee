@@ -4,10 +4,12 @@ SWPWRD.wordLoader = do () ->
   that = {}
   words = []
 
+  maxBufferLength = 4
+
   retrievingWords = false
 
   fillBuffer = (params = {}) ->
-    unless retrievingWords
+    unless retrievingWords || words.length >= maxBufferLength
       retrievingWords = true
 
       $.getJSON('/words.json', (newWords) ->
