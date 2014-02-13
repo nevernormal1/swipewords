@@ -1,6 +1,6 @@
 window.SWPWRD ?= {}
 
-SWPWRD.wordLoader = () ->
+SWPWRD.wordLoader = do () ->
   that = {}
 
   that.load = () ->
