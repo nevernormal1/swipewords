@@ -23,14 +23,17 @@ SWPWRD.wordLoader = do () ->
       )
 
   load = () ->
-    fillBuffer({complete: initial})
+    fillBuffer(
+      complete: () ->
+        loadNextWord()
+        transitionWords()
+    )
 
-  initial = () ->
+  loadNextWord = () ->
     nextWord = SWPWRD.word(words.shift())
     $("#next-word").html(nextWord.pictureImg())
-    next()
 
-  next = () ->
+  transitionWords = () ->
     if words.length > 0
       if currentWord
         $("#word-container img").fadeOut()
@@ -42,16 +45,14 @@ SWPWRD.wordLoader = do () ->
       $("#word-container").fadeIn()
       currentWord.render()
 
-      # Load next word into "next" word
-      nextWord = SWPWRD.word(words.shift())
-      $("#next-word").html(nextWord.pictureImg())
+      loadNextWord()
 
       fillBuffer()
     else
-      fillBuffer({complete: next})
+      fillBuffer({complete: transitionWords})
 
   that.load = load
-  that.next = next
+  that.transitionWords = transitionWords
 
   that
 

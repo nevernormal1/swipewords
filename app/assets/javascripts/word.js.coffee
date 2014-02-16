@@ -15,9 +15,6 @@ SWPWRD.word = (data) ->
     $("<img>", {src: pictureUrl})
 
   render = () ->
-    #$("#word-container").data("value", word).html(pictureImg())
-    #$("#word-container").show()
-
     $("#prefixes").empty()
     $("#suffixes").empty()
 

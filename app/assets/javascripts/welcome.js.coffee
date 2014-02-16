@@ -13,7 +13,7 @@ $(() ->
     correctWord = wordContainer.data("value")
 
     if word is correctWord
-      SWPWRD.wordLoader.next()
+      SWPWRD.wordLoader.transitionWords()
       #wordContainer.effect("explode")
     else
       wordContainer.effect("shake")
