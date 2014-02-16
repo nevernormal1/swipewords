@@ -1,19 +1,22 @@
 window.SWPWRD ?= {}
 
 SWPWRD.word = (data) ->
-  word = data.value
+  value = data.value
   prefixes = data.prefixes
   suffixes = data.suffixes
   pictureUrl = data.pictureUrl
 
   that = {}
 
+  getValue = () ->
+    value
+
   pictureImg = () ->
     $("<img>", {src: pictureUrl})
 
-  that.render = () ->
-    $("#word-container").data("value", word).html(pictureImg())
-    $("#word-container").show()
+  render = () ->
+    #$("#word-container").data("value", word).html(pictureImg())
+    #$("#word-container").show()
 
     $("#prefixes").empty()
     $("#suffixes").empty()
@@ -24,6 +27,10 @@ SWPWRD.word = (data) ->
     for suffix in suffixes
       $("#suffixes").append($("<li>").append($("<span>", {'class': "suffix label label-default"}).text(suffix)))
 
+
+  that.pictureImg = pictureImg
+  that.render = render
+  that.getValue = getValue
 
   that
 
