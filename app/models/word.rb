@@ -12,6 +12,10 @@ class Word < ActiveRecord::Base
     order("RANDOM()")
   end
 
+  def self.excluding(words)
+    where("value NOT IN (?)", words)
+  end
+
   def self.randomGroup
     limit(4).order("RANDOM()")
   end

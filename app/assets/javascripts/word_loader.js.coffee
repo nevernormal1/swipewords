@@ -11,11 +11,19 @@ SWPWRD.wordLoader = do () ->
 
   retrievingWords = false
 
+  wordsInPipeline = () ->
+    ret = []
+    ret.push(currentWord.getValue()) if currentWord
+    ret.push(nextWord.getValue()) if nextWord
+
+
+    ret = ret.concat (word.value for word in words)
+
   fillBuffer = (params = {}) ->
     unless retrievingWords || words.length >= maxBufferLength
       retrievingWords = true
 
-      $.getJSON(url, (newWords) ->
+      $.getJSON(url, {exclude_words: wordsInPipeline()}, (newWords) ->
         words = words.concat(newWords)
         retrievingWords = false
 
