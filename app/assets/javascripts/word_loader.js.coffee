@@ -4,6 +4,7 @@ SWPWRD.wordLoader = do () ->
   that = {}
   currentWord = null
   nextWord = null
+  url = null
   words = []
 
   maxBufferLength = 4
@@ -14,7 +15,7 @@ SWPWRD.wordLoader = do () ->
     unless retrievingWords || words.length >= maxBufferLength
       retrievingWords = true
 
-      $.getJSON('/words.json', (newWords) ->
+      $.getJSON(url, (newWords) ->
         words = words.concat(newWords)
         retrievingWords = false
 
@@ -22,7 +23,9 @@ SWPWRD.wordLoader = do () ->
           params.complete()
       )
 
-  load = () ->
+  init = (options) ->
+    url = options.url
+
     fillBuffer(
       complete: () ->
         loadNextWord()
@@ -51,7 +54,7 @@ SWPWRD.wordLoader = do () ->
     else
       fillBuffer({complete: transitionWords})
 
-  that.load = load
+  that.init = init
   that.transitionWords = transitionWords
 
   that

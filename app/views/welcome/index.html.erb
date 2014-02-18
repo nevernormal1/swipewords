@@ -17,7 +17,7 @@
 <% content_for :jquery do %>
   <script>
     $(function() {
-      SWPWRD.wordLoader.load();
+      SWPWRD.wordLoader.init({url: '<%= words_path(:format => :json) %>'});
     });
   </script>
 <% end %>
