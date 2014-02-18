@@ -1,7 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
 $(() ->
   activeLabel = null
   activeSuffix = null
@@ -14,7 +10,6 @@ $(() ->
 
     if word is correctWord
       SWPWRD.wordLoader.transitionWords()
-      #wordContainer.effect("explode")
     else
       wordContainer.effect("shake")
 
