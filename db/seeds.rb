@@ -11,46 +11,128 @@ def image_path
   "#{Rails.root}/spec/fixtures/"
 end
 
-def create_word(value, prefix, suffix, filename)
+def create_words(prefix, *values)
+  values.each do |value|
+    create_word(value, prefix)
+  end
+end
+
+def create_word(value, prefix)
+  suffix = value.split(prefix).last
 
   Word.create!(
     :value => value,
     :prefix => prefix,
     :suffix => suffix,
-    :picture => File.new(image_path + filename)
+    :picture => File.new(image_path + "#{value}.jpg")
   )
 end
-
-create_word "brick", "br", "ick", "brick.jpg"
-
-create_word "clam", "cl", "am", "clam.jpg"
-create_word "cloud", "cl", "oud", "cloud.jpg"
-create_word "cow", "c", "ow", "cow.jpg"
-
-create_word "flower", "fl", "ower", "flower.jpg"
-
-create_word "plant", "pl", "ant", "plant.jpg"
-create_word "plow", "pl", "ow", "plow.jpg"
-
-create_word "shark", "sh", "ark", "shark.jpg"
-create_word "shirt", "sh", "irt", "shirt.jpg"
-create_word "skunk", "sk", "unk", "skunk.jpg"
-create_word "snail", "sn", "ail", "snail.jpg"
-
-create_word "tree", "tr", "ee", "tree.jpg"
-
-
-
 
 # Ar
 # An
 #
+# Bl
+# Blast
+create_words "bl", "blocks"
+
 # Br
+create_words "br", "braid", "brain", "branch", "bread", "brick", "broom"
+
+# Ch
+create_words "ch", "chair", "cheese", "cherry", "chips"
+
+# Cl
+# Clip
+create_words "cl", "clam", "cloud", "clock"
 # Cr
+create_words "cr", "crab", "crib", "crown"
+
 # Dr
+create_words "dr", "dress", "drill", "drum"
+#
+# Ex
 #
 # Fl
+create_words "fl", "flower", "flag"
+
 # Fr
+create_words "fr", "fry"
+
+# Friends
+#
+# Gl
+create_words "gl", "globe", "glove", "glue"
+
+#
 # Gr
+create_words "gr", "grapes", "grate"
+
+# Green
+# Grouch
+# Grow
+# Growl
+#
+# Kn
+create_words "kn", "knife", "knight"
+#
+# Ph
+create_words "ph", "phone"
+#
+# Pl
+create_words "pl", "plane", "plant", "plate", "plow", "plug"
+#
 # Pr
 #
+# Qu
+create_words "qu", "quilt"
+
+# Sc
+create_words "sc", "scarf", "scissors"
+
+# Sch
+create_words "sch", "school"
+
+# Sh
+create_words "sh", "shark", "shirt", "shelf"
+
+# Sk
+create_words "sk", "skate", "skirt", "skunk"
+
+# Sl
+create_words "sl", "slinky", "slime"
+
+# Sn
+create_words "sn", "snail", "snake", "snow"
+
+# Sp
+create_words "sp", "spiral", "spoon"
+
+# Spl
+create_words "spl", "splash"
+
+# Sq
+create_words "sq", "squid", "square"
+
+# St
+create_words "st", "star", "stairs", "stick"
+create_words "str", "string"
+
+# Sw
+create_words "sw", "switch", "sword", "swing"
+
+# Th
+#
+# Thr
+create_words "thr", "thread"
+
+# Tr
+create_words "tr", "trash", "tree", "trophy", "truck"
+
+
+# Wh
+create_words "wh", "whale", "wheel", "whip"
+
+# Wr
+create_words "wr", "wreath", "wrench"
+
+
